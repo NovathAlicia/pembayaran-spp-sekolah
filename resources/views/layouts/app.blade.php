@@ -35,6 +35,18 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ Route('index.siswa') }}">Siswa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ Route('index.petugas') }}">Petugas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ Route('index.kelas') }}">Kelas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ Route('index.spp') }}">SPP</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
@@ -50,7 +62,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
