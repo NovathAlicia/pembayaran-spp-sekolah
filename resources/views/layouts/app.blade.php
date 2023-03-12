@@ -12,7 +12,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+    
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -35,18 +36,27 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        @auth
+
+                            @if (Auth::user()->role != 'siswa')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ Route('index.siswa') }}">Siswa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ Route('index.petugas') }}">Petugas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ Route('index.kelas') }}">Kelas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ Route('index.spp') }}">SPP</a>
+                                </li>
+                            @endif
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ Route('index.siswa') }}">Siswa</a>
+                            <a class="nav-link" href="{{ Route('index.pembayaran') }}">Pembayaran</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ Route('index.petugas') }}">Petugas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ Route('index.kelas') }}">Kelas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ Route('index.spp') }}">SPP</a>
-                        </li>
+                        @endauth
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))

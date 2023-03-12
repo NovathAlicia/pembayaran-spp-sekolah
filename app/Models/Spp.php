@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pembayaran;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Spp extends Model
 {
@@ -13,4 +14,9 @@ class Spp extends Model
         'nominal',
         'tahun',
     ];
+
+    public function pembayarans()
+    {
+        return $this->hasMany(Pembayaran::class);
+    }
 }

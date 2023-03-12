@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Kelas;
+use App\Models\Pembayaran;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -52,5 +53,10 @@ class User extends Authenticatable
     public function kelas()
     {
         return $this->belongsTo(Kelas::class);
+    }
+  
+    public function pembayarans()
+    {
+        return $this->hasMany(Pembayaran::class);
     }
 }

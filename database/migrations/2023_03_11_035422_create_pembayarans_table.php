@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('petugas');
+            $table->bigInteger('spp_id')->unsigned();
+            $table->foreign('spp_id')->references('id')->on('spps');
             $table->timestamps();
         });
     }

@@ -6,7 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" data-bs-toggle="modal" data-bs-target="#modal-tambah-spp">Data SPP
+                  @if (Auth::user()->role == 'admin')
                   <button type="button" class="btn btn-light border float-end">Tambah SPP</button>
+                  @endif
                 </div>
 
                 <div class="card-body">
@@ -16,7 +18,9 @@
                         <th scope="col">#</th>
                         <th scope="col">Nominal</th>
                         <th scope="col">Tahun</th>
+                        @if (Auth::user()->role == 'admin')
                         <th scope="col">Actions</th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -25,9 +29,11 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $spp->nominal }}</td>
                         <td>{{ $spp->tahun }}</td>
+                        @if (Auth::user()->role == 'admin')
                         <td>
                           <button type="button" class="btn btn-light border">Edit</button>
                         </td>
+                        @endif
                       </tr>
                       @endforeach
                     </tbody>

@@ -6,7 +6,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" data-bs-toggle="modal" data-bs-target="#modal-tambah-petugas">Data Petugas
+                  @if (Auth::user()->role == 'admin')
                   <button type="button" class="btn btn-light border float-end">Tambah Petugas</button>
+                  @endif
                 </div>
 
                 <div class="card-body">
@@ -17,7 +19,9 @@
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
                         <th scope="col">Jenis kelamin</th>
+                        @if (Auth::user()->role == 'admin')
                         <th scope="col">Actions</th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -27,9 +31,11 @@
                         <td>{{ $petugas->name }}</td>
                         <td>{{ $petugas->email }}</td>
                         <td>{{ $petugas->jenis_kelamin }}</td>
+                        @if (Auth::user()->role == 'admin')
                         <td>
                           <button type="button" class="btn btn-light border">Edit</button>
                         </td>
+                        @endif
                       </tr>
                       @endforeach
                     </tbody>

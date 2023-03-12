@@ -6,7 +6,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" data-bs-toggle="modal" data-bs-target="#modal-tambah-siswa">Data Siswa
+                  @if (Auth::user()->role == 'admin')
                   <button type="button" class="btn btn-light border float-end">Tambah siswa</button>
+                  @endif
                 </div>
 
                 <div class="card-body">
@@ -22,7 +24,9 @@
                         <th scope="col">Email</th>
                         <th scope="col">Jenis kelamin</th>
                         <th scope="col">Kelas</th>
+                        @if (Auth::user()->role == 'admin')
                         <th scope="col">Actions</th>
+                        @endif
                       </tr>
                     </thead>
                     <tbody>
@@ -37,9 +41,11 @@
                         <td>{{ $murid->email }}</td>
                         <td>{{ $murid->jenis_kelamin }}</td>
                         <td>{{ $murid->kelas->name }}</td>
+                        @if (Auth::user()->role == 'admin')
                         <td>
                           <button type="button" class="btn btn-light border">Edit</button>
                         </td>
+                        @endif
                       </tr>
                       @endforeach
                     </tbody>
